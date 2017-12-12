@@ -27,6 +27,6 @@ urlpatterns = [
 
     url(r'^region/(?P<pk>\d+)/district/$', views.district_list, name='district_list'),
     url(r'^district/(?P<pk>\d+)/$', views.district_detail, name='district_detail'),
-    url(r'^district/new/$', views.district_new, name='district_new'),
+    url(r'^district/(?P<pk>\d+)/new/$', views.district_new, name='district_new'),
     url(r'^district/(?P<pk>\d+)/edit/$', views.district_edit, name='district_edit'),
 ]

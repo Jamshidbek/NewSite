@@ -2,12 +2,13 @@
 
 {% block content %}
         <div class="post">
-            <a href="{% url 'district_new' %}">Tuman qo'shish</a>
+            <a class="btn btn-default" href="{% url 'region_detail' pk=pk %}"><span class="glyphicon glyphicon-home"></span> {{ districts.1.region }}</a>
+            <a class="btn btn-default" href="{% url 'district_new' pk=pk %}">Tuman qo'shish <span class="glyphicon glyphicon-plus"></span></a>
         </div>
 
     {% for district in districts %}
         <div class="post">
-            <h1><a href="{% url 'district_detail' pk=district.pk %}">{{ district.name }}</a></h1>
+            <h1><a href="{% url 'district_detail' pk=district.pk %}">{{ district.name }} tumani</a></h1>
             <hr style="clear:both;"/>
         </div>
     {% endfor %}

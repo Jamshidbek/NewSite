@@ -14,4 +14,4 @@ class DistrictForm(forms.ModelForm):
 
     class Meta:
         model = District
-        fields = ('name', 'center', 'about', 'region')
+        fields = ('name', 'center', 'about')

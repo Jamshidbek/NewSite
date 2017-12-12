@@ -4,6 +4,7 @@
     <div class="post">
         {% if user.is_authenticated %}
 		    <a class="btn btn-default" href="{% url 'region_edit' pk=region.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+            <a class="btn btn-default" href="{% url 'region_new' %}"><span class="glyphicon glyphicon-plus"></span></a>
 		{% endif %}
         <h1>{{ region.name }}</h1>
         <hr style="clear:both;"/>

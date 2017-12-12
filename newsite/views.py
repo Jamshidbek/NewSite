@@ -44,20 +44,21 @@ def region_edit(request, pk):
 
 def district_list(request, pk):
     districts = District.objects.filter(region=pk).order_by('name')
-    return render(request, 'newsite/district_list.html', {'districts': districts})
+    return render(request, 'newsite/district_list.html', {'districts': districts, "pk": pk})
 
 
 def district_detail(request, pk):
     district = get_object_or_404(District, pk=pk)
-    return render(request, 'newsite/district_detail.html', {'district': district})
+    return render(request, 'newsite/district_detail.html', {'district': district, 'pk': district.region.id})
 
 
-def district_new(request):
+def district_new(request, pk):
     if request.method == "POST":
         form = DistrictForm(request.POST)
         if form.is_valid():
             district = form.save(commit=False)
             district.changed_date = timezone.now()
+            district.region = get_object_or_404(Region, pk=pk)
             district.save()
             return redirect('district_detail', pk=district.pk)
     else:
