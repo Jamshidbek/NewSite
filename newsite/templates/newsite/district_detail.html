@@ -2,8 +2,8 @@
 
 {% block content %}
     <div class="post">
+        <a class="btn btn-default" href="{% url 'district_list' pk=pk %}"><span class="glyphicon glyphicon-home"></span></a>
         {% if user.is_authenticated %}
-		    <a class="btn btn-default" href="{% url 'district_list' pk=pk %}"><span class="glyphicon glyphicon-home"></span></a>
             <a class="btn btn-default" href="{% url 'district_edit' pk=district.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
             <a class="btn btn-default" href="{% url 'district_new' pk=pk %}"><span class="glyphicon glyphicon-plus"></span></a>
 		{% endif %}
