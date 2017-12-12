@@ -1,0 +1,10 @@
+{% extends 'newsite/base.html' %}
+
+{% block content %}
+    {% for region in regions %}
+        <div class="post">
+            <h1><a href="{% url 'region_detail' pk=region.pk %}">{{ region.name }}</a></h1>
+            <hr style="clear:both;"/>
+        </div>
+    {% endfor %}
+{% endblock %}  

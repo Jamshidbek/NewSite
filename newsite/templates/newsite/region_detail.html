@@ -1,0 +1,18 @@
+{% extends 'newsite/base.html' %}
+
+{% block content %}
+    <div class="post">
+        {% if user.is_authenticated %}
+		    <a class="btn btn-default" href="{% url 'region_edit' pk=region.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+		{% endif %}
+        <h1>{{ region.name }}</h1>
+        <hr style="clear:both;"/>
+        <h4>Hokim: {{ region.governer }}</h4>
+        <h4>Aholisi: {{ region.population }} kishi</h4>
+        <h4>Maydoni: {{ region.field }} km^2</h4>
+        <h4>Markazi: {{ region.center }}</h4>
+        <h4><a href="{% url 'district_list' pk=region.pk %}">Tumanlar:</a> {{ region_count }} ta</h4>
+        <hr style="clear:both;"/>
+        <p class="post-text">{{ region.about|linebreaksbr }}</p>
+    </div>
+{% endblock %}
